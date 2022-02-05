@@ -1,12 +1,13 @@
 # Powershell-scripts
 Hi everyone!
-This repository contains two powershell scripts that i wrote recently during
+This repository contains powershell scripts that i wrote recently during
 a cyber security course im currently attending.
-Both scripts have the same purpose which is to remotely install a given software
+The scripts have the same purpose which is to remotely install a given software
 on computers in a given domain.
 The first script "MSI software installation script.ps1" is the basic version
-which i wrote initially and the second script "Remote MSI installation.ps1"
-is an improved version of it.
+which i wrote initially. 
+The other scripts are improvements of the initial script
+and the "Remote MSI installation Final.ps1" is the final version.
 
 Don't forget to give a start if you like my work!
 
