@@ -170,7 +170,7 @@ Note that the script will be aborted if you would choose not to retry downloadin
 
 function Check-IfFileDownloaded {
 Write-Output "Downloading $Software..."
-certutil -f -split -urlcache $DownloadLink $SourceFile > $null # Downloading the .msi installation file
+Start-BitsTransfer -Source $DownloadLink -Destination $SourceFile -ErrorAction Ignore # Downloading the .msi installation file
 $global:IsFileCreated = Test-Path -Path $SourceFile -ErrorAction Ignore
 if ($IsFileCreated -eq "True") {
     $global:DownloadedSize = (((Get-Item $global:SourceFile).Length)/1mb)
@@ -180,7 +180,7 @@ if ($IsFileCreated -eq "True") {
         $Anwser = Read-Host "The download of $Software has failed. Would you like to try downloading the file again? (y / n)"
         if ($Anwser -eq "y") {
             Write-Output "Downloading $Software..."
-            certutil -f -split -urlcache $DownloadLink $SourceFile > $null
+            Start-BitsTransfer -Source $DownloadLink -Destination $SourceFile -ErrorAction Ignore
             $global:IsFileCreated = Test-Path -Path $SourceFile -ErrorAction Ignore
             if ($IsFileCreated -eq "True") {
                 $global:DownloadedSize = (((Get-Item $global:SourceFile).Length)/1mb)
@@ -611,7 +611,7 @@ Check-IfFileDownloaded
 <# The next loop will cycle through every remote computer from the list and attempt to install the given software on each one. #>
 
 foreach ($PC in $PCs.name) {
-    $PCStatus = Test-Connection -ComputerName $PC -Count 1 -Quiet
+    $PCStatus = Test-Connection -ComputerName $PC -Count 2 -Quiet
     if ($PCStatus -eq "True") {
         Write-Output "$([datetime]::Now) $PC is online, checking the status of the WinRM service." | Tee-Object -Append $FullLogFilePath -ErrorAction Ignore
         Enable-WinRM
