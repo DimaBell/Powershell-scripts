@@ -644,7 +644,9 @@ foreach ($PC in $PCs.name) {
     }   
 }
 } else {
-    Write-Output "$([datetime]::Now) No domain computers found. Please make sure that this computer is part of the domain and that you have sufficient priviliges and run the script again." | Tee-Object -Append $FullLogFilePath -ErrorAction Ignore
+    Write-Output "No domain computers found. Please make sure that this computer is part of the domain and that you have sufficient priviliges and run the script again."
+    Read-Host "Press any key to exit"
+    exit
 }
 Remove-Item $global:SourceFile -Force -ErrorAction Ignore > $null
 Write-Output "$([datetime]::Now) The installation file has been deleted and the script has finished. The log file has been saved to $FullLogFilePath." | Tee-Object -Append $FullLogFilePath -ErrorAction Ignore
