@@ -234,7 +234,7 @@ if ($global:IfLogDirectoryExists -eq "True") {
 }
 }
 
-<# The next function will try to create the directory that was specified in the "Get-LogFilePat" function if needed
+<# The next function will try to create the directory that was specified in the "Get-LogFilePath" function if needed
 and offer the user an option to specify a path to a different directory. #>
 
 function Check-LogFilePath {
