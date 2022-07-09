@@ -247,7 +247,7 @@ if ($global:IfLogDirectoryExists -eq "True") {
         New-Item -ItemType Directory -Path $global:LogFilePath -Force -ErrorAction Ignore > $null
         $global:IfLogDirectoryExists = Test-Path -Path $global:LogFilePath -ErrorAction Ignore
         if ($global:IfLogDirectoryExists -eq "True") {
-            Write-Output "$([datetime]::Now) The directory $global:LogFilePath was created successfully." #| Tee-Object -Append $FullLogFilePath -ErrorAction Ignore
+            Write-Output "$([datetime]::Now) The directory $global:LogFilePath was created successfully." | Tee-Object -Append $FullLogFilePath -ErrorAction Ignore
         } else {
             Write-Output "Failed to create the specified directory."
         }
