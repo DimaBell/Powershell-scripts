@@ -1,3 +1,12 @@
+<#
+    
+    
+    Script writer: Dima Bell.
+   
+    E-mail: D1m419935@gmail.com 
+#>
+
+
 $OpenConnections = Get-NetTCPConnection -State Established | Where-Object { ($_.RemoteAddress -ne "127.0.0.1") -and ($_.RemoteAddress -ne "::1") } | Select-Object RemoteAddress, RemotePort, OwningProcess
 Foreach ($OpenConnection in $OpenConnections) {
     $ProgramName = (Get-Process -Id $OpenConnection.OwningProcess | Select-Object ProcessName).ProcessName
