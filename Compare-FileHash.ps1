@@ -1,4 +1,4 @@
-﻿<#
+<#
 
     .SYNOPSIS
     Validates file hash.
@@ -10,8 +10,8 @@
     (Mandatory) The full path to the file to be tested. Only one file per test is supported.
 
     .PARAMETER Algorithm
-    (Mandatory) The algorithm for the test.
-    Supports the following hashing algorithms: MACTRIPLEDES, MD5, RIPEMD160, SHA1, SHA256, SHA384 and SHA512.
+    (Optional) The algorithm for the test, SHA256 is default.
+    Supports the following hashing algorithms: MD5, SHA1, SHA256, SHA384 and SHA512.
 
     .PARAMETER ExpectedHash
     (Mandatory) The expected hash of the file. 
@@ -40,11 +40,11 @@ Param(
         Return $true
     })]
     [System.IO.FileInfo]$FilePath,
-    [parameter(Mandatory=$true, HelpMessage="Please select the algorithm: MACTRIPLEDES, MD5, RIPEMD160, SHA1, SHA256, SHA384 or SHA512.")]
-    [validateset('MACTRIPLEDES', 'MD5', 'RIPEMD160', 'SHA1', 'SHA256', 'SHA384', 'SHA512')]
-    [string]$Algorithm,
+    [parameter(Mandatory=$false, HelpMessage="Please select the algorithm: MD5, SHA1, SHA256, SHA384 or SHA512.")]
+    [validateset('MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512')]
+    [string]$Algorithm = 'SHA256',
     [parameter(Mandatory=$true, HelpMessage="Please supply the expected file hash.")]
-    [ValidatePattern('^[a-z A-Z 0-9]{16,128}$', ErrorMessage="This is not a valid hash string either it is too short. Only digits [0-9] and regular characters [a-z,A-Z] are allowed and the hash has to be at least 16 characters long and 128 characters long at most.")]
+    [ValidatePattern('^[a-z A-Z 0-9]{32,128}$', ErrorMessage="This is not a valid hash string either it is too short. Only digits [0-9] and regular characters [a-z,A-Z] are allowed and the hash has to be at least 32 characters long and 128 characters long at most.")]
     [string]$ExpectedHash
 )
 $ExpectedHash.ToUpper()
