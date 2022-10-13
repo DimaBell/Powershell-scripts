@@ -1,10 +1,10 @@
 <#
 
     .SYNOPSIS
-    Validates file hash.
+    Validates file integrity.
 
     .DESCRIPTION
-    Validates that the hash of a file matches the expected hash.
+    Validates that the integrity has not been compromised by comparing the file hash with the expected hash.
 
     .PARAMETER FilePath
     (Mandatory) The full path to the file to be tested. Only one file per test is supported.
