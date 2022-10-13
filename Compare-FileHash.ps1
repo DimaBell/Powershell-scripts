@@ -4,7 +4,7 @@
     Validates file integrity.
 
     .DESCRIPTION
-    Validates that the integrity has not been compromised by comparing the file hash with the expected hash.
+    Validates that the integrity of the file has not been compromised by comparing the file hash with the expected hash.
 
     .PARAMETER FilePath
     (Mandatory) The full path to the file to be tested. Only one file per test is supported.
