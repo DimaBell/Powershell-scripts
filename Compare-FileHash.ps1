@@ -44,7 +44,7 @@ Param(
     [validateset('MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512')]
     [string]$Algorithm = 'SHA256',
     [parameter(Mandatory=$true, HelpMessage="Please supply the expected file hash.")]
-    [ValidatePattern('^[a-z A-Z 0-9]{32,128}$', ErrorMessage="This is not a valid hash string either it is too short. Only digits [0-9] and regular characters [a-z,A-Z] are allowed and the hash has to be at least 32 characters long and 128 characters long at most.")]
+    [ValidatePattern('^[a-z A-Z 0-9]{32,128}$', ErrorMessage="This is not a valid hash string either it is too short or too long. Only digits [0-9] and regular characters [a-z,A-Z] are allowed and the hash has to be at least 32 characters long and 128 characters long at most.")]
     [string]$ExpectedHash
 )
 $ExpectedHash.ToUpper()
