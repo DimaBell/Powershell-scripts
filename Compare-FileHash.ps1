@@ -26,6 +26,8 @@
     .EXAMPLE
     .\Compare-FileHash.ps1 -FilePath C:\Hello World.jpg -Algorithm SHA1 -ExpectedHash DA39A3EE5E6B4B0D3255BFEF95601890AFD80709
 
+    ---------------------------------------------------------------
+    
     Script writer: Dima Bell
 
     E-mail: D1m419935@gmail.com
