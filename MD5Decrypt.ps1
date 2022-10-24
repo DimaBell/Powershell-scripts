@@ -64,4 +64,5 @@ If ($Response.StatusCode -eq 200) {
     }
 } Else {
     Write-Host "The site did not return an OK (200) status code, something must have gone wrong. Please try again." -ForegroundColor Red
+    Read-Host "Press any key to exit"
 }
