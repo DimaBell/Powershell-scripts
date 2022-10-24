@@ -42,7 +42,7 @@ Param(
         Return $true
     })]
     [System.IO.FileInfo]$FilePath,
-    [parameter(Mandatory=$false, HelpMessage="Please select the algorithm: MD5, SHA1, SHA256, SHA384 or SHA512.")]
+    [parameter(Mandatory=$false, HelpMessage="Please select the algorithm: MD5, SHA1, SHA256, SHA384 or SHA512. SHA256 is default.")]
     [validateset('MD5', 'SHA1', 'SHA256', 'SHA384', 'SHA512')]
     [string]$Algorithm = 'SHA256',
     [parameter(Mandatory=$true, HelpMessage="Please supply the expected file hash.")]
