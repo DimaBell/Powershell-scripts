@@ -20,6 +20,8 @@
     .EXAMPLE
     .\Ping-Alot.ps1 -List C:\List.txt
 
+    ---------------------------------------------------------------
+
     Script writer: Dima Bell
 
     E-mail: D1m419935@gmail.com
