@@ -31,7 +31,7 @@
 
 Param(
     [Parameter(Mandatory=$True)]
-    [ValidatePattern('^[a-z A-Z 0-9]{32}$'<#, ErrorMessage="This is not a valid hash string, either it is too short or too long. Only digits [0-9] and regular characters [a-z,A-Z] are allowed and the hash has to be 32 characters long."#>)]
+    [ValidatePattern('^[a-z A-Z 0-9]{32}$', ErrorMessage="This is not a valid hash string, either it is too short or too long. Only digits [0-9] and regular characters [a-z,A-Z] are allowed and the hash has to be 32 characters long.")]
     [String]$Hash
 )
 
