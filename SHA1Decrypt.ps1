@@ -62,10 +62,13 @@ If ($Response.StatusCode -eq 200) {
             } While (($Anwser.ToLower() -ne "yes") -or ($Anwser.ToLower() -ne "y") -or ($Anwser.ToLower() -ne "no")-or ($Anwser.ToLower() -ne "n"))
         }
     } Elseif ($Response.Content.Contains("Invalid hash format")) {
-        Write-Host "Invalid hash format." -ForegroundColor Red
+        Write-Host "Invalid hash format, please try again." -ForegroundColor Red
+        Read-Host "Press any key to exit"
     } Elseif ($Response.Content.Contains("no reverse string was found")) {
-        Write-Host "The hash $Hash was not found in the database." -ForegroundColor Red
+        Write-Host "The hash $Hash was not found in the database, please try a different hash value." -ForegroundColor Red
+        Read-Host "Press any key to exit"
     }
 } Else {
-    Write-Host "The site did not return an OK (200) status code." -ForegroundColor Red
+    Write-Host "The site did not return an OK (200) status code, something must have gone wrong. Please try again." -ForegroundColor Red
+    Read-Host "Press any key to exit"
 }
