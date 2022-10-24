@@ -20,6 +20,8 @@
     .EXAMPLE
     .\Get-BiggestFolder.ps1 -Path C:\Program Files
 
+    ---------------------------------------------------------------
+
     Script writer: Dima Bell.
 
     E-mail: D1m419935@gmail.com 
