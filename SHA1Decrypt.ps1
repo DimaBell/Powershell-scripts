@@ -30,7 +30,7 @@
 #>
 
 Param(
-    [Parameter(Mandatory=$True)]
+    [Parameter(Mandatory=$True, HelpMessage="Please specify the hash value for the decryption attempt. A 40 char long string is expected.")]
     [ValidatePattern('^[a-z A-Z 0-9]{40}$', ErrorMessage="This is not a valid hash value, either it is too short or too long. Only digits [0-9] and regular characters [a-z,A-Z] are allowed and the hash has to be 40 characters long.")]
     [String]$Hash
 )
